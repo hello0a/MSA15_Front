@@ -1,121 +1,215 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 공통 ~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    min-height: 100vh;
-}
 ul { list-style-type: none;}
-a {text-decoration: none; color: black;}
+a {text-decoration: none; color: inherit;}
+img { max-width: 100%; display: block;}
+body {
+    background: #f6f7fb;
+}
 
+/* layout */
+.container { width: min(1200px, 100%); margin: 0 auto; }
+.flex { display: flex; }
+.flex.column { flex-direction: column;}
+
+.flex.m-start { justify-content: start;}
+.flex.m-end { justify-content: end;}
+.flex.m-center { justify-content: center;}
+.flex.m-between { justify-content: space-between;}
+.flex.m-around { justify-content: space-around;}
+.flex.m-evenly { justify-content: space-evenly;}
+
+.flex.c-start { align-items: start;}
+.flex.c-center { align-items: center;}
+.flex.c-end { align-items: end;}
+
+.flex.gap-1 {gap: 10px;}
+.flex.gap-2 {gap: 20px;}
+.flex.gap-3 {gap: 30px;}
+
+/* grid */
+.grid {display: grid;}
+.grid.cols-1 { grid-template-columns: repeat(1, 1fr);}
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr);}
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr);}
+.grid.gap-1 {gap: 15px;}
+.grid.gap-2 {gap: 20px;}
+.grid.gap-3 {gap: 30px;}
+
+.w-100 { width: 100%;}
+.h-100 { height: 100%;}
+
+/* button */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    box-shadow: 0 6px 20px rgb(255, 126, 95, 0.3);
+    border-radius: 2em;
+    cursor: pointer;
+}
+
+.btn.light {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.btn.primary {
+    height: 48px;
+    padding: 0 20px;
+}
 /* 헤더 */
 header {
-    width: 100%;
     position: fixed;
     top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 1000;
 }
+
 /* 유틸 */
 .util {
-    height: 45px;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+    width: 100%;
     background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    height: 45px;
 }
-.util .util-menu {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 20px;
+/* 네비게이션 */
+.nav {
+    width: 100%;
+    height: 80px;
+    background: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
-.util .util-menu a {
-    color: white;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
+.nav .logo {
+    font-size: 18px;
+    font-weight: bold;
 }
-.util .util-menu li a:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-/* menu */
-.menu {
-    position: relative;
-    height: 75px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0 20px;
+/* 섹션1 */
+#sec1 {
+    margin-top: 150px;
+    padding: 40px 0;
     background: white;
 }
-.menu .side a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 110px;
-    height: 50px;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: white;
-    font-size: 24px;
-    border-radius: 4em;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
+#sec1 .content-box h1 {
+    font-weight: bold;
+    font-size: 36px;
 }
-.menu .logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-evenly;
+/* 섹션2 */
+#sec2 {
+    margin-top: 30px;
 }
-.menu .logo h3 {
-    padding: 10px;
-    font-weight: 1000;
+#sec2 .card {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+/* 섹션3 */
+#sec3 {
+    margin-top: 40px;
+}
+.tab-box {
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.menu .logo a:hover,
-.menu .side a:hover {
-    box-shadow: 0 6px 20px rgb(255, 126, 95, 1);
-    transform: translateY(-3px) scale(1.05);
-}
-/* menu > main-menu */
-.menu .main-menu nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 10px;
-}
-.menu .main-menu nav ul li{
-    height: 30px;
-    overflow: hidden;
-}
-.menu .main-menu nav ul li a{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 28px;
-    font-weight: 400;
-    font-size: 1rem;
+/* 라디오버튼 숨김 */
+[type="radio"] {display: none;}
+
+/* 탭 버튼(label) */
+.tab-item {
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef);
+    font-weight: 600;
     color: #495057;
-    transition: all 0.3s ease-in;
+    border-right: 1px solid #dee2e6;
+    user-select: none;  /* 드래그 선택 방지 */
+    transition: all 0.3s;
     position: relative;
+    /* overflow: hidden; */
 }
-/* 가로선 */
-.menu .main-menu nav ul li a::before {
+
+.tab-item:last-of-type { border-right: none;}
+/* 호버 효과 */
+.tab-item:hover {
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    color:black;
+    box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.3);
+}
+/* 탭 버튼 선택 애니메이션 */
+.tab-box input:checked + label::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    transition: all 0.3s ease;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+    display: none;
+    justify-content: center;
+    padding: 50px 40px;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.tab-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.tab-content img:hover {
+    transform: scale(1.05);
+}
+
+/* 탭버튼 클릭 시, 탭 내용 표시 */
+#tab1:checked ~ #content1, 
+#tab2:checked ~ #content2, 
+#tab3:checked ~ #content3 {
+    display: inherit;
+}
+
+/* 선택한 탭버튼 효과 */
+.tab-box input:checked + label {
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+}
+/* 푸터 */
+footer {
+    height: 50px;
+    margin-top: 80px;
+    color: #222222;
 }
