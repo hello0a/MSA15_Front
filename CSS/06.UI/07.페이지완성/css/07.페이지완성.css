@@ -1,0 +1,121 @@
+/* reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+}
+ul { list-style-type: none;}
+a {text-decoration: none; color: black;}
+
+/* 헤더 */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+/* 유틸 */
+.util {
+    height: 45px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+.util .util-menu {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+.util .util-menu a {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+.util .util-menu li a:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* menu */
+.menu {
+    position: relative;
+    height: 75px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 20px;
+    background: white;
+}
+.menu .side a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    font-size: 24px;
+    border-radius: 4em;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
+}
+.menu .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu .logo h3 {
+    padding: 10px;
+    font-weight: 1000;
+}
+
+.menu .logo a:hover,
+.menu .side a:hover {
+    box-shadow: 0 6px 20px rgb(255, 126, 95, 1);
+    transform: translateY(-3px) scale(1.05);
+}
+/* menu > main-menu */
+.menu .main-menu nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+.menu .main-menu nav ul li{
+    height: 30px;
+    overflow: hidden;
+}
+.menu .main-menu nav ul li a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #495057;
+    transition: all 0.3s ease-in;
+    position: relative;
+}
+/* 가로선 */
+.menu .main-menu nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    transition: all 0.3s ease;
+}
