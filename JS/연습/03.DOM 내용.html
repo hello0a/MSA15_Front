@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 내용 가져오기</title>
+    <!-- 접근했다면, 다음으로는 텍스트 내용 가져오고, 수정하기
+        * 3가지 프로퍼티
+        : innerText, innerHTML, textContent 
+        -->
+        
+</head>
+<body>
+    <div id="detail">
+        <ul>
+            <li>영화 : 더그의 일상</li>
+            <!-- display: none 
+                : 화면에서 내용 감추기 -->
+            <li style="display: none">개봉일 : 2025년 12월 03일</li> 
+            <li style="display: none">평  점 : 5점</li>
+        </ul>
+    </div>
+    <script>
+        // 가져오기
+        let detail = document.querySelector('#detail > ul')
+        // innerText
+        // : 웹 브라우저 창에 보이는 내용 가져옴
+        console.log(detail.innerText);
+        // innerHTML
+        // : HTML 코드 가져옴 (화면 보이는 것과 무관)
+        console.log(detail.innerHTML);
+        // textContent
+        // : 접근한 요소의 내용 가져옴 (화면 보이는 것과 무관)
+        console.log(detail.textContent);
+        /* 정리
+            웹 요소의 내용 -> innerText, textContent
+            웹 브라우저 창에 표시되지 않은 내용까지 포함 -> textContent
+            요소 안에 있는 태그까지 -> innerHTML */
+    </script>
+</body>
+</html>

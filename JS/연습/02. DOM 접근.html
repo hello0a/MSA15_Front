@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 접근</title>
+    <script>
+        // getElement
+        document.getElementById("id명") // id 선택자 제외한 다른 선택자는 여러번 사용 가능
+        document.getElementsByClassName("class명") // 2개 이상 반환O
+        document.getElementsByTagName("태그명") // 2개 이상 반환O
+        // 사용방법
+        // id값 (heading) 에 접근해서 변수 (heading) 에 할당
+        let heading = document.getElementById('heading')
+        // class값 (bright) 에 접근해서 변수 (bright) 에 할당
+        let bright = document.getElementsByClassName('bright')
+        // <img>태그 (images) 에 접근해서 변수 (img) 에 할당
+        let images = document.getElementsByTagName('img')
+
+        // querySelector() 함수 : 하나만 // id -> # class-> . 
+        document.querySelector ('선택자')
+        // <h1 id="heading"> 에티포티아 게뎁</h1>
+        document.querySelector('#heading') // 콘솔창에 입력 시, 해당 코드 보여줌
+        document.querySelector('img')   // 첫번째 이미지만 접근 가능
+
+        // querySelectorAll() 함수 : id 선택자 제외 여러 요소 한 번에
+        document.querySelectorAll('선택자')
+        // <div id="small-pic"> 안에 있는 이미지 3개 접근
+        document.querySelectorAll('#small-pic > img')
+        // 결과 : NodeList(3) -> 한꺼번에 여러개 가져온 노드 리스트 형태
+        // - 노드 리스트
+        // : 저장된 요소는 배열처럼 인덱스로 접근 가능
+        document.querySelectorAll('#small-pic > img')[1]
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
