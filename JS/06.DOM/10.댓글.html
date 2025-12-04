@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글</title>
+    <style>
+        /* h2, h3 { margin: 0; padding: 20px; } */
+        ul {list-style-type: none;}
+        body {
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        br {
+            margin: 10px;
+        }
+        #writer {
+           width: 400px;
+           height: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        #content {
+            width: 400px;
+            height: 50px;
+            border-radius: 5px;
+        }
+        button {
+            width: 70px;
+            height: 30px;
+            border-radius: 5px;
+            background: white;
+            border-color: rgb(19, 19, 119, 0.8);
+            color: rgb(19, 19, 119, 0.8);
+        }
+        .comment-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-bottom: 10px;
+            position: relative;
+            width: 100%;
+        }
+        .title img{
+            width: 50px;
+            height: 50px;
+            margin: 3px;
+            
+        }
+        .content-box {
+            text-align: start;
+        }
+        /* ul { 
+            width: 350px;
+            height: 70px;
+// 초콜릿 먹으실 분..~~??
+        } */
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const writer = document.getElementById("writer")
+            const content = document.getElementById("content")
+            const commentList = document.getElementById("commentList")
+            const commentBtn = document.getElementById("commentBtn")
+
+
+            commentBtn.addEventListener("click", () => {
+                const card = 
+                    `<div class="comment-card">
+                        <div class="title">
+                            <img src="img/avatar.png" alt="">${writer.value}</div>
+                        <div class="content-box">
+                            <p class="content">${content.value}</p>
+                        </div>
+                    </div>
+                `
+                // alert ( writer.value)
+                commentList.innerHTML += card
+            })
+
+        })
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h2>댓글 목록</h2>
+        <h3>댓글 작성</h3>
+        <ul>
+            <li id="commentList">
+        </ul>
+        <input type="text" name="writer" id="writer" placeholder="이름">
+        <br>
+        <textarea name="content" id="content" placeholder="내용을 작성해주세요"></textarea>
+        <br>
+        <button id="commentBtn">작성</button>
+    </div>
+</body>
+</html>
